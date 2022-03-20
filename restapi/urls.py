@@ -19,6 +19,7 @@ from .views import MainView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
-    path('', MainView.as_view(), name='api'),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', MainView.as_view(), name='api'),
+    path('api/v1/<int:pk>', MainView.as_view(), name='api_pk'),
 ]
